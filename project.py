@@ -1,11 +1,13 @@
+#importing random for the questions to appear shuffled
+import random
 #score is zero(0) because quiz has not started and goes up when score increases 
 score = 0
-#create a dictionary with the questions inside a list
+#create the list of questions with dictionaries inside
 quiz_pocket = [
     {
-       'question': 'what is the square of 5?',
-        'choices': 'A) 10 B) 25 C) 30',
-        'answer': 'B'   
+        'question': 'what is the square of 5?',
+        'choices': 'A) 10 B) 25 C) 30 D) 15',
+        'answer': 'B'    
     },
     {
         'question': 'result for 5 + 3 * 2',
@@ -28,6 +30,8 @@ quiz_pocket = [
         'answer': 'D'
     },
 ]
+#shuffling the questions
+random.shuffle(quiz_pocket)
 #welcoming the user  
 print('Welcome to Hotpoint Quiz')
 #asking for user's name
@@ -37,9 +41,9 @@ print(f'All the best!, {user_name}')
 #using for loop to iterate through questions
 for item in quiz_pocket:
     #retriving the question and choices
-    prompt_txt = print(f'{item['question']} [{item['choices']}]  your answer: ')
+    prompt_txt = f'{item['question']} [{item['choices']}]\nyour answer: '
     #user inputs answer/choice
-    user_choice = input('prompt_txt')
+    user_choice = input(prompt_txt)
     #comparing answers while using .strip().upper() to clean and modify text data
     if user_choice.strip().upper() == item['answer']:
         print('correct: ')
